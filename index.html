@@ -16,8 +16,22 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Chisel<span>Web</span></a>
-    <ul class="nav-links">
+    <!-- Desktop links -->
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <!-- Hamburger -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+    </button>
+  </div>
+  <!-- Mobile dropdown -->
+  <div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
@@ -46,7 +60,7 @@
       </a>
       <a href="contact.html" class="btn btn-outline">Get in Touch</a>
     </div>
-    <div style="margin-top:32px;" class="hero-trust">
+    <div class="hero-trust">
       <span>No long contracts</span>
       <span class="hero-trust-dot"></span>
       <span>Live within a week</span>
@@ -96,309 +110,309 @@
     </div>
   </div>
 
-  <!-- Sticky scroll zone -->
+  <!-- ── Sticky scroll zone ──
+       ARCHITECTURE:
+         demoStickyOuter  → JS reads bounding rect for progress
+           demoScrollDriver → gets height set by JS (the tall scroll track)
+             demostickyscene  → position:sticky, pins at top:0 within the driver
+  -->
   <div class="demo-sticky-outer" id="demoStickyOuter">
-    <div class="demo-scroll-driver" id="demoScrollDriver"></div>
-    <div class="demo-sticky-scene" id="demostickyscene">
-      <div class="demo-progress" id="demoProgress" style="width:0%"></div>
+    <div class="demo-scroll-driver" id="demoScrollDriver">
+      <div class="demo-sticky-scene" id="demostickyscene">
+        <div class="demo-progress" id="demoProgress" style="width:0%"></div>
 
-      <!-- ── Scenario 1: Lead Follow-Up ── -->
-      <div class="demo-scenario active" id="scenario1" style="width:100%;padding:0 40px;max-width:1200px;margin:0 auto;gap:48px;align-items:flex-start;">
-        <div class="workflow-panel">
-          <div class="workflow-scenario-label">
-            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#F5C518"/></svg>
-            Scenario 1 — Lead Follow-Up
-          </div>
-          <h3 class="workflow-title">A lead enquires at 11pm.<br>Here's what happens automatically.</h3>
-          <div class="workflow-nodes" id="s1nodes">
-
-            <div class="workflow-node" data-node="0">
-              <div class="node-box">
-                <div class="node-icon">🔗</div>
-                <div class="node-info">
-                  <div class="node-type">Webhook</div>
-                  <div class="node-label">Lead Enquires via Form</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
+        <!-- ── Scenario 1: Lead Follow-Up ── -->
+        <div class="demo-scenario active" id="scenario1">
+          <div class="workflow-panel">
+            <div class="workflow-scenario-label">
+              <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#F5C518"/></svg>
+              Scenario 1 — Lead Follow-Up
             </div>
+            <h3 class="workflow-title">A lead enquires at 11pm.<br>Here's what happens automatically.</h3>
+            <div class="workflow-nodes" id="s1nodes">
 
-            <div class="workflow-node" data-node="1">
-              <div class="node-box">
-                <div class="node-icon">⚖️</div>
-                <div class="node-info">
-                  <div class="node-type">IF Node</div>
-                  <div class="node-label">New or Existing Client?</div>
+              <div class="workflow-node" data-node="0">
+                <div class="node-box">
+                  <div class="node-icon">🔗</div>
+                  <div class="node-info">
+                    <div class="node-type">Webhook</div>
+                    <div class="node-label">Lead Enquires via Form</div>
+                  </div>
+                  <div class="node-status"></div>
                 </div>
-                <span class="node-branch">→ NEW</span>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="2">
-              <div class="node-box">
-                <div class="node-icon">✉️</div>
-                <div class="node-info">
-                  <div class="node-type">Gmail</div>
-                  <div class="node-label">Send Welcome Email</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="3">
-              <div class="node-box">
-                <div class="node-icon">💬</div>
-                <div class="node-info">
-                  <div class="node-type">WhatsApp / SMS</div>
-                  <div class="node-label">Instant Text Acknowledgement</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="4">
-              <div class="node-box">
-                <div class="node-icon">⏳</div>
-                <div class="node-info">
-                  <div class="node-type">Wait</div>
-                  <div class="node-label">Pause 24 Hours</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="5">
-              <div class="node-box">
-                <div class="node-icon">⚖️</div>
-                <div class="node-info">
-                  <div class="node-type">IF Node</div>
-                  <div class="node-label">Did They Reply?</div>
-                </div>
-                <span class="node-branch">→ NO</span>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="6">
-              <div class="node-box">
-                <div class="node-icon">📧</div>
-                <div class="node-info">
-                  <div class="node-type">Gmail</div>
-                  <div class="node-label">Send Chase Email</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="7">
-              <div class="node-box">
-                <div class="node-icon">🔔</div>
-                <div class="node-info">
-                  <div class="node-type">Slack</div>
-                  <div class="node-label">Alert Your Team</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-            <div class="workflow-node" data-node="8">
-              <div class="node-box">
-                <div class="node-icon">✅</div>
-                <div class="node-info">
-                  <div class="node-type">CRM Update</div>
-                  <div class="node-label">Mark as Qualified Lead</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Phone mockup S1 -->
-        <div class="phone-panel">
-          <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Client's phone</div>
-          <div class="phone-mockup">
-            <div class="phone-notch">
-              <div class="phone-notch-cam"></div>
-              <div class="phone-notch-pill"></div>
-            </div>
-            <div class="phone-screen" id="s1phone">
-              <div class="phone-time">11:08 PM</div>
-
-              <!-- Notif 0: form submitted -->
-              <div class="phone-notification" id="s1n0">
-                <div class="phone-notif-header">
-                  <div class="phone-notif-app-icon" style="background:#4CAF50;">🌐</div>
-                  <div class="phone-notif-app-name">Safari</div>
-                  <div class="phone-notif-time">now</div>
-                </div>
-                <div class="phone-notif-title">Form submitted</div>
-                <div class="phone-notif-body">Your mortgage enquiry has been received.</div>
               </div>
 
-              <!-- Notif 2: email arrives -->
-              <div class="phone-notification" id="s1n2">
-                <div class="phone-notif-header">
-                  <div class="phone-notif-app-icon" style="background:#EA4335;">✉</div>
-                  <div class="phone-notif-app-name">Gmail</div>
-                  <div class="phone-notif-time">11:08 PM</div>
+              <div class="workflow-node" data-node="1">
+                <div class="node-box">
+                  <div class="node-icon">⚖️</div>
+                  <div class="node-info">
+                    <div class="node-type">IF Node</div>
+                    <div class="node-label">New or Existing Client?</div>
+                  </div>
+                  <span class="node-branch">→ NEW</span>
+                  <div class="node-status"></div>
                 </div>
-                <div class="phone-notif-title">Thanks for getting in touch</div>
-                <div class="phone-notif-body">Hi James — we've got your enquiry and will be in touch shortly...</div>
               </div>
 
-              <!-- Notif 3: WhatsApp -->
-              <div class="phone-notification" id="s1n3">
-                <div class="phone-notif-header">
-                  <div class="phone-notif-app-icon" style="background:#25D366;">💬</div>
-                  <div class="phone-notif-app-name">WhatsApp</div>
-                  <div class="phone-notif-time">11:08 PM</div>
+              <div class="workflow-node" data-node="2">
+                <div class="node-box">
+                  <div class="node-icon">✉️</div>
+                  <div class="node-info">
+                    <div class="node-type">Gmail</div>
+                    <div class="node-label">Send Welcome Email</div>
+                  </div>
+                  <div class="node-status"></div>
                 </div>
-                <div class="phone-notif-title">ChiselWeb Brokers</div>
-                <div class="phone-notif-body">Hi James 👋 Got your enquiry — we'll be in touch first thing tomorrow.</div>
               </div>
 
-              <!-- Notif 6: chase -->
-              <div class="phone-notification" id="s1n6">
-                <div class="phone-notif-header">
-                  <div class="phone-notif-app-icon" style="background:#EA4335;">✉</div>
-                  <div class="phone-notif-app-name">Gmail</div>
-                  <div class="phone-notif-time">Tomorrow</div>
+              <div class="workflow-node" data-node="3">
+                <div class="node-box">
+                  <div class="node-icon">💬</div>
+                  <div class="node-info">
+                    <div class="node-type">WhatsApp / SMS</div>
+                    <div class="node-label">Instant Text Acknowledgement</div>
+                  </div>
+                  <div class="node-status"></div>
                 </div>
-                <div class="phone-notif-title">Still thinking it over?</div>
-                <div class="phone-notif-body">No pressure — just wanted to make sure you didn't miss our last message.</div>
+              </div>
+
+              <div class="workflow-node" data-node="4">
+                <div class="node-box">
+                  <div class="node-icon">⏳</div>
+                  <div class="node-info">
+                    <div class="node-type">Wait</div>
+                    <div class="node-label">Pause 24 Hours</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="5">
+                <div class="node-box">
+                  <div class="node-icon">⚖️</div>
+                  <div class="node-info">
+                    <div class="node-type">IF Node</div>
+                    <div class="node-label">Did They Reply?</div>
+                  </div>
+                  <span class="node-branch">→ NO</span>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="6">
+                <div class="node-box">
+                  <div class="node-icon">📧</div>
+                  <div class="node-info">
+                    <div class="node-type">Gmail</div>
+                    <div class="node-label">Send Chase Email</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="7">
+                <div class="node-box">
+                  <div class="node-icon">🔔</div>
+                  <div class="node-info">
+                    <div class="node-type">Slack</div>
+                    <div class="node-label">Alert Your Team</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="8">
+                <div class="node-box">
+                  <div class="node-icon">✅</div>
+                  <div class="node-info">
+                    <div class="node-type">CRM Update</div>
+                    <div class="node-label">Mark as Qualified Lead</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
               </div>
 
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- ── Scenario 2: Morning Briefing ── -->
-      <div class="demo-scenario" id="scenario2" style="width:100%;padding:0 40px;max-width:1200px;margin:0 auto;gap:48px;align-items:flex-start;">
-        <div class="workflow-panel">
-          <div class="workflow-scenario-label">
-            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#F5C518"/></svg>
-            Scenario 2 — Morning Briefing
-          </div>
-          <h3 class="workflow-title">7am. Before you open your inbox,<br>your day is already organised.</h3>
-          <div class="workflow-nodes" id="s2nodes">
-
-            <div class="workflow-node" data-node="0">
-              <div class="node-box">
-                <div class="node-icon">🕖</div>
-                <div class="node-info">
-                  <div class="node-type">Schedule Trigger</div>
-                  <div class="node-label">Every Day at 7:00am</div>
-                </div>
-                <div class="node-status"></div>
+          <!-- Phone mockup S1 -->
+          <div class="phone-panel">
+            <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Client's phone</div>
+            <div class="phone-mockup">
+              <div class="phone-notch">
+                <div class="phone-notch-cam"></div>
+                <div class="phone-notch-pill"></div>
               </div>
-            </div>
+              <div class="phone-screen" id="s1phone">
+                <div class="phone-time">11:08 PM</div>
 
-            <div class="workflow-node" data-node="1">
-              <div class="node-box">
-                <div class="node-icon">📅</div>
-                <div class="node-info">
-                  <div class="node-type">Google Calendar</div>
-                  <div class="node-label">Fetch Today's Appointments</div>
+                <div class="phone-notification" id="s1n0">
+                  <div class="phone-notif-header">
+                    <div class="phone-notif-app-icon" style="background:#4CAF50;">🌐</div>
+                    <div class="phone-notif-app-name">Safari</div>
+                    <div class="phone-notif-time">now</div>
+                  </div>
+                  <div class="phone-notif-title">Form submitted</div>
+                  <div class="phone-notif-body">Your mortgage enquiry has been received.</div>
                 </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
 
-            <div class="workflow-node" data-node="2">
-              <div class="node-box">
-                <div class="node-icon">📥</div>
-                <div class="node-info">
-                  <div class="node-type">Gmail</div>
-                  <div class="node-label">Scan Overnight Emails</div>
+                <div class="phone-notification" id="s1n2">
+                  <div class="phone-notif-header">
+                    <div class="phone-notif-app-icon" style="background:#EA4335;">✉</div>
+                    <div class="phone-notif-app-name">Gmail</div>
+                    <div class="phone-notif-time">11:08 PM</div>
+                  </div>
+                  <div class="phone-notif-title">Thanks for getting in touch</div>
+                  <div class="phone-notif-body">Hi James — we've got your enquiry and will be in touch shortly...</div>
                 </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
 
-            <div class="workflow-node" data-node="3">
-              <div class="node-box">
-                <div class="node-icon">📊</div>
-                <div class="node-info">
-                  <div class="node-type">Google Sheets</div>
-                  <div class="node-label">Pull Open Cases &amp; Deadlines</div>
+                <div class="phone-notification" id="s1n3">
+                  <div class="phone-notif-header">
+                    <div class="phone-notif-app-icon" style="background:#25D366;">💬</div>
+                    <div class="phone-notif-app-name">WhatsApp</div>
+                    <div class="phone-notif-time">11:08 PM</div>
+                  </div>
+                  <div class="phone-notif-title">ChiselWeb Brokers</div>
+                  <div class="phone-notif-body">Hi James 👋 Got your enquiry — we'll be in touch first thing tomorrow.</div>
                 </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
 
-            <div class="workflow-node" data-node="4">
-              <div class="node-box">
-                <div class="node-icon">🤖</div>
-                <div class="node-info">
-                  <div class="node-type">Claude AI</div>
-                  <div class="node-label">Write Personalised Summary</div>
+                <div class="phone-notification" id="s1n6">
+                  <div class="phone-notif-header">
+                    <div class="phone-notif-app-icon" style="background:#EA4335;">✉</div>
+                    <div class="phone-notif-app-name">Gmail</div>
+                    <div class="phone-notif-time">Tomorrow</div>
+                  </div>
+                  <div class="phone-notif-title">Still thinking it over?</div>
+                  <div class="phone-notif-body">No pressure — just wanted to make sure you didn't miss our last message.</div>
                 </div>
-                <div class="node-status"></div>
+
               </div>
-            </div>
-
-            <div class="workflow-node" data-node="5">
-              <div class="node-box">
-                <div class="node-icon">📨</div>
-                <div class="node-info">
-                  <div class="node-type">Gmail</div>
-                  <div class="node-label">Deliver Morning Briefing</div>
-                </div>
-                <div class="node-status"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Phone mockup S2 -->
-        <div class="phone-panel">
-          <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Your phone</div>
-          <div class="phone-mockup">
-            <div class="phone-notch">
-              <div class="phone-notch-cam"></div>
-              <div class="phone-notch-pill"></div>
-            </div>
-            <div class="phone-screen" id="s2phone">
-              <div class="phone-time">7:00 AM</div>
-
-              <!-- Notif: trigger fires -->
-              <div class="phone-notification" id="s2n0">
-                <div class="phone-notif-header">
-                  <div class="phone-notif-app-icon" style="background:#555;">⏰</div>
-                  <div class="phone-notif-app-name">Automation</div>
-                  <div class="phone-notif-time">7:00 AM</div>
-                </div>
-                <div class="phone-notif-title">Morning briefing running…</div>
-                <div class="phone-notif-body">Pulling your calendar, emails & cases.</div>
-              </div>
-
-              <!-- Email preview arrives -->
-              <div class="phone-email-preview" id="s2email">
-                <div class="phone-email-header">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  <span class="phone-email-from">Your Morning Briefing — Thu 5 Jun</span>
-                </div>
-                <div class="phone-email-subject">☀️ Good morning. Here's your day.</div>
-                <div class="phone-email-line w90"></div>
-                <div style="padding:6px 10px;font-size:0.625rem;color:rgba(255,255,255,0.45);">📅 3 appointments today &nbsp;·&nbsp; 📥 2 urgent emails &nbsp;·&nbsp; ⚠️ 1 deadline tomorrow</div>
-                <div class="phone-email-line w80"></div>
-                <div class="phone-email-line w60" style="margin-bottom:10px;"></div>
-              </div>
-
             </div>
           </div>
-        </div>
-      </div>
+        </div><!-- /scenario1 -->
 
-    </div><!-- /demo-sticky-scene -->
+        <!-- ── Scenario 2: Morning Briefing ── -->
+        <div class="demo-scenario" id="scenario2">
+          <div class="workflow-panel">
+            <div class="workflow-scenario-label">
+              <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#F5C518"/></svg>
+              Scenario 2 — Morning Briefing
+            </div>
+            <h3 class="workflow-title">7am. Before you open your inbox,<br>your day is already organised.</h3>
+            <div class="workflow-nodes" id="s2nodes">
+
+              <div class="workflow-node" data-node="0">
+                <div class="node-box">
+                  <div class="node-icon">🕖</div>
+                  <div class="node-info">
+                    <div class="node-type">Schedule Trigger</div>
+                    <div class="node-label">Every Day at 7:00am</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="1">
+                <div class="node-box">
+                  <div class="node-icon">📅</div>
+                  <div class="node-info">
+                    <div class="node-type">Google Calendar</div>
+                    <div class="node-label">Fetch Today's Appointments</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="2">
+                <div class="node-box">
+                  <div class="node-icon">📥</div>
+                  <div class="node-info">
+                    <div class="node-type">Gmail</div>
+                    <div class="node-label">Scan Overnight Emails</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="3">
+                <div class="node-box">
+                  <div class="node-icon">📊</div>
+                  <div class="node-info">
+                    <div class="node-type">Google Sheets</div>
+                    <div class="node-label">Pull Open Cases &amp; Deadlines</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="4">
+                <div class="node-box">
+                  <div class="node-icon">🤖</div>
+                  <div class="node-info">
+                    <div class="node-type">Claude AI</div>
+                    <div class="node-label">Write Personalised Summary</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+              <div class="workflow-node" data-node="5">
+                <div class="node-box">
+                  <div class="node-icon">📨</div>
+                  <div class="node-info">
+                    <div class="node-type">Gmail</div>
+                    <div class="node-label">Deliver Morning Briefing</div>
+                  </div>
+                  <div class="node-status"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Phone mockup S2 -->
+          <div class="phone-panel">
+            <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Your phone</div>
+            <div class="phone-mockup">
+              <div class="phone-notch">
+                <div class="phone-notch-cam"></div>
+                <div class="phone-notch-pill"></div>
+              </div>
+              <div class="phone-screen" id="s2phone">
+                <div class="phone-time">7:00 AM</div>
+
+                <div class="phone-notification" id="s2n0">
+                  <div class="phone-notif-header">
+                    <div class="phone-notif-app-icon" style="background:#555;">⏰</div>
+                    <div class="phone-notif-app-name">Automation</div>
+                    <div class="phone-notif-time">7:00 AM</div>
+                  </div>
+                  <div class="phone-notif-title">Morning briefing running…</div>
+                  <div class="phone-notif-body">Pulling your calendar, emails &amp; cases.</div>
+                </div>
+
+                <div class="phone-email-preview" id="s2email">
+                  <div class="phone-email-header">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span class="phone-email-from">Your Morning Briefing — Thu 5 Jun</span>
+                  </div>
+                  <div class="phone-email-subject">☀️ Good morning. Here's your day.</div>
+                  <div class="phone-email-line w90"></div>
+                  <div style="padding:6px 10px;font-size:0.625rem;color:rgba(255,255,255,0.45);">📅 3 appointments today &nbsp;·&nbsp; 📥 2 urgent emails &nbsp;·&nbsp; ⚠️ 1 deadline tomorrow</div>
+                  <div class="phone-email-line w80"></div>
+                  <div class="phone-email-line w60" style="margin-bottom:10px;"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div><!-- /scenario2 -->
+
+      </div><!-- /demo-sticky-scene -->
+    </div><!-- /demo-scroll-driver -->
   </div><!-- /demo-sticky-outer -->
 
-  <div style="height:80px;"></div>
+  <div style="height:80px;position:relative;z-index:1;"></div>
 </section>
 
 <!-- ── Social Proof ────────────────────────────────────────────── -->
@@ -424,13 +438,14 @@
       </div>
     </div>
 
-    <div class="testimonial-block fade-up">
-      <p class="testimonial-text">"Before ChiselWeb, I was spending the first two hours of every day just catching up on admin — chasing clients, updating my pipeline, writing the same emails again. Now I sit down and it's all done. I don't know how I managed without it."</p>
+    <!-- Placeholder testimonial — real quote to be added after working together -->
+    <div class="testimonial-block testimonial-placeholder fade-up">
+      <p class="testimonial-placeholder-text">Your words here — once we've worked together and automated your practice, we'd love to share what you found. We'll add your quote here when you're ready.</p>
       <div class="testimonial-author">
-        <div class="testimonial-avatar">SR</div>
+        <div class="testimonial-avatar">?</div>
         <div>
-          <div class="testimonial-name">Sarah R.</div>
-          <div class="testimonial-role">Independent Mortgage Broker, Manchester</div>
+          <div class="testimonial-name">Your name here</div>
+          <div class="testimonial-role">Mortgage Broker or IFA</div>
         </div>
       </div>
     </div>

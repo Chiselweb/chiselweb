@@ -13,12 +13,27 @@
 <body>
 
 <!-- ── Navigation ─────────────────────────────────────────────── -->
+<!-- Contact page: always starts scrolled (background visible immediately) -->
 <nav class="nav scrolled" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">Chisel<span>Web</span></a>
-    <ul class="nav-links">
+    <!-- Desktop links -->
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <!-- Hamburger -->
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+      <span class="ham-bar"></span>
+    </button>
+  </div>
+  <!-- Mobile dropdown -->
+  <div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -42,28 +57,30 @@
       method="POST"
       id="contactForm"
     >
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <!-- Row 1: Name + Company — collapses to 1 col on mobile via .form-row -->
+      <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="name">Full Name</label>
-          <input class="form-input" type="text" id="name" name="name" placeholder="James Morrison" required />
+          <input class="form-input" type="text" id="name" name="name" placeholder="James Morrison" required autocomplete="name" />
         </div>
         <div class="form-group">
           <label class="form-label" for="company">Company</label>
-          <input class="form-input" type="text" id="company" name="company" placeholder="Morrison Financial" required />
+          <input class="form-input" type="text" id="company" name="company" placeholder="Morrison Financial" required autocomplete="organization" />
         </div>
       </div>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <!-- Row 2: Email + Phone — collapses to 1 col on mobile -->
+      <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="email">Email Address</label>
-          <input class="form-input" type="email" id="email" name="email" placeholder="james@morrisonfs.co.uk" required />
+          <input class="form-input" type="email" id="email" name="email" placeholder="james@morrisonfs.co.uk" required autocomplete="email" />
         </div>
         <div class="form-group">
           <label class="form-label" for="phone">
             Phone
             <span class="form-optional">(optional)</span>
           </label>
-          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+44 7700 900000" />
+          <input class="form-input" type="tel" id="phone" name="phone" placeholder="+44 7700 900000" autocomplete="tel" />
         </div>
       </div>
 
@@ -78,7 +95,7 @@
         ></textarea>
       </div>
 
-      <button type="submit" class="btn btn-yellow" style="width:100%;justify-content:center;padding:16px 28px;font-size:1rem;">
+      <button type="submit" class="btn btn-yellow" style="width:100%;padding:16px 28px;font-size:1rem;">
         Send Message
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
@@ -92,7 +109,7 @@
         ✅ &nbsp;Message sent — we'll be in touch within one business day.
       </div>
       <div id="formError" style="display:none;margin-top:20px;background:#fef2f2;border:1.5px solid #fca5a5;border-radius:8px;padding:20px 24px;color:#991b1b;font-size:0.9375rem;font-weight:500;">
-        ⚠️ &nbsp;Something went wrong. Please try again or email us directly.
+        ⚠️ &nbsp;Something went wrong. Please try again or email us directly at chiselwebs@gmail.com.
       </div>
 
     </form>
@@ -102,9 +119,9 @@
   <div class="contact-sidebar">
     <div class="sidebar-card">
       <div class="sidebar-card-title">Contact details</div>
-      <a href="mailto:hello@chiselweb.co.uk" class="sidebar-contact-item">
+      <a href="mailto:chiselwebs@gmail.com" class="sidebar-contact-item">
         <div class="sidebar-contact-icon">✉️</div>
-        hello@chiselweb.co.uk
+        chiselwebs@gmail.com
       </a>
       <a href="https://linkedin.com/company/chiselweb" target="_blank" rel="noopener noreferrer" class="sidebar-contact-item">
         <div class="sidebar-contact-icon">
@@ -123,15 +140,15 @@
       <div class="sidebar-card-title">What to expect</div>
       <div style="display:flex;flex-direction:column;gap:12px;">
         <div style="display:flex;gap:10px;align-items:flex-start;">
-          <span style="color:var(--yellow-dark);font-weight:700;margin-top:1px;">01</span>
+          <span style="color:var(--yellow-dark);font-weight:700;margin-top:1px;flex-shrink:0;">01</span>
           <span style="font-size:0.875rem;color:var(--charcoal-60);line-height:1.55;">We'll reply within one business day to arrange a short discovery call.</span>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;">
-          <span style="color:var(--yellow-dark);font-weight:700;margin-top:1px;">02</span>
+          <span style="color:var(--yellow-dark);font-weight:700;margin-top:1px;flex-shrink:0;">02</span>
           <span style="font-size:0.875rem;color:var(--charcoal-60);line-height:1.55;">On that call we map out your process and identify the highest-impact automations.</span>
         </div>
         <div style="display:flex;gap:10px;align-items:flex-start;">
-          <span style="color:var(--yellow-dark);font-weight:700;margin-top:1px;">03</span>
+          <span style="color:var(--yellow-dark);font-weight:700;margin-top:1px;flex-shrink:0;">03</span>
           <span style="font-size:0.875rem;color:var(--charcoal-60);line-height:1.55;">We send you a clear proposal — what we'll build, how long it takes, and what it costs.</span>
         </div>
       </div>
@@ -157,27 +174,57 @@
 </footer>
 
 <script>
-  // Nav scroll
+  /* ── Nav: contact page always starts scrolled ── */
   const nav = document.getElementById('nav');
+  /* scrolled class already applied in HTML; keep it on scroll too */
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
+    /* On contact page nav is always shown with bg */
+    nav.classList.add('scrolled');
   }, { passive: true });
 
-  // Fade-up
+  /* ── Hamburger menu ── */
+  (function () {
+    const btn = document.getElementById('navHamburger');
+    const mobileMenu = document.getElementById('navMobileMenu');
+    if (!btn || !mobileMenu) return;
+
+    function openMenu() {
+      nav.classList.add('nav-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    }
+    function closeMenu() {
+      nav.classList.remove('nav-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    btn.addEventListener('click', () => {
+      nav.classList.contains('nav-open') ? closeMenu() : openMenu();
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', (e) => { if (!nav.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+  })();
+
+  /* ── Fade-up ── */
   document.querySelectorAll('.fade-up').forEach(el => {
     new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.15 }).observe(el);
+    }, { threshold: 0.12 }).observe(el);
   });
 
-  // Formspree AJAX submit
+  /* ── Formspree AJAX submit ── */
   const form = document.getElementById('contactForm');
   if (form) {
     form.addEventListener('submit', async (e) => {
       const action = form.getAttribute('action');
-      if (action.includes('REPLACE_WITH_ID')) return; // allow native submit if not configured
+      if (action.includes('REPLACE_WITH_ID')) return; // fall back to native submit if not configured
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
+      const origText = btn.innerHTML;
       btn.disabled = true;
       btn.textContent = 'Sending…';
       try {
@@ -190,13 +237,14 @@
           form.reset();
           document.getElementById('formSuccess').style.display = 'block';
           document.getElementById('formError').style.display = 'none';
+          btn.textContent = 'Sent ✓';
         } else {
           throw new Error('bad response');
         }
       } catch {
         document.getElementById('formError').style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Send Message';
+        btn.innerHTML = origText;
       }
     });
   }
