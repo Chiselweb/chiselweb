@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChiselWeb — Automation Systems for Financial Services</title>
+  <meta name="description" content="We build automation systems that respond instantly, follow up automatically, and never let a client slip through. Built for mortgage brokers and IFAs in the UK." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ── Navigation ─────────────────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Chisel<span>Web</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero-bg dot-grid"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="hero-tag-dot"></span>
+      Built for UK mortgage brokers &amp; IFAs
+    </div>
+    <h1 class="hero-headline">
+      Your leads don't wait.<br>
+      Your systems <em>should</em>.
+    </h1>
+    <p class="hero-sub">
+      We build automation systems that respond instantly, follow up automatically, and never let a client slip through — so you can focus on advice, not admin.
+    </p>
+    <div class="hero-actions">
+      <a href="#demo" class="btn btn-yellow">
+        See How It Works
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+    </div>
+    <div style="margin-top:32px;" class="hero-trust">
+      <span>No long contracts</span>
+      <span class="hero-trust-dot"></span>
+      <span>Live within a week</span>
+      <span class="hero-trust-dot"></span>
+      <span>GDPR compliant</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Problem Section ────────────────────────────────────────── -->
+<section class="section dot-grid-light" id="problem">
+  <div class="container">
+    <div class="fade-up">
+      <p class="section-label">The problem</p>
+      <h2 class="section-title">Most brokers are losing business<br>without realising it.</h2>
+      <p class="section-sub">Every unanswered enquiry, every chased document, every manual reminder is time — and money — you're not getting back.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="card fade-up">
+        <div class="card-icon">⏱️</div>
+        <h3 class="card-title">Leads go cold</h3>
+        <p class="card-body">An enquiry comes in at 9pm. Nobody replies until Monday morning. By then, the client has already spoken to someone else — and signed.</p>
+      </div>
+      <div class="card fade-up" style="transition-delay:0.1s;">
+        <div class="card-icon">📋</div>
+        <h3 class="card-title">Admin eats your day</h3>
+        <p class="card-body">Chasing documents. Sending reminders. Copying data between systems. Hours of work that adds zero value to your clients — but has to get done.</p>
+      </div>
+      <div class="card fade-up" style="transition-delay:0.2s;">
+        <div class="card-icon">🗂️</div>
+        <h3 class="card-title">Nothing is joined up</h3>
+        <p class="card-body">Your calendar, inbox, and CRM are three separate tabs that don't talk to each other. You're the glue — and that's exhausting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Demo Section ────────────────────────────────────────────── -->
+<section class="demo-section" id="demo">
+  <div class="demo-section-bg"></div>
+
+  <div class="demo-header">
+    <div class="container">
+      <p class="section-label" style="color:rgba(245,197,24,0.7);">Live demo</p>
+      <h2 class="section-title-white">Watch automation work<br>in real time.</h2>
+      <p class="section-sub-white" style="margin:0 auto;">Scroll through to see exactly what happens when a lead comes in at midnight — and how your morning briefing writes itself.</p>
+    </div>
+  </div>
+
+  <!-- Sticky scroll zone -->
+  <div class="demo-sticky-outer" id="demoStickyOuter">
+    <div class="demo-scroll-driver" id="demoScrollDriver"></div>
+    <div class="demo-sticky-scene" id="demostickyscene">
+      <div class="demo-progress" id="demoProgress" style="width:0%"></div>
+
+      <!-- ── Scenario 1: Lead Follow-Up ── -->
+      <div class="demo-scenario active" id="scenario1" style="width:100%;padding:0 40px;max-width:1200px;margin:0 auto;gap:48px;align-items:flex-start;">
+        <div class="workflow-panel">
+          <div class="workflow-scenario-label">
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#F5C518"/></svg>
+            Scenario 1 — Lead Follow-Up
+          </div>
+          <h3 class="workflow-title">A lead enquires at 11pm.<br>Here's what happens automatically.</h3>
+          <div class="workflow-nodes" id="s1nodes">
+
+            <div class="workflow-node" data-node="0">
+              <div class="node-box">
+                <div class="node-icon">🔗</div>
+                <div class="node-info">
+                  <div class="node-type">Webhook</div>
+                  <div class="node-label">Lead Enquires via Form</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="1">
+              <div class="node-box">
+                <div class="node-icon">⚖️</div>
+                <div class="node-info">
+                  <div class="node-type">IF Node</div>
+                  <div class="node-label">New or Existing Client?</div>
+                </div>
+                <span class="node-branch">→ NEW</span>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="2">
+              <div class="node-box">
+                <div class="node-icon">✉️</div>
+                <div class="node-info">
+                  <div class="node-type">Gmail</div>
+                  <div class="node-label">Send Welcome Email</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="3">
+              <div class="node-box">
+                <div class="node-icon">💬</div>
+                <div class="node-info">
+                  <div class="node-type">WhatsApp / SMS</div>
+                  <div class="node-label">Instant Text Acknowledgement</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="4">
+              <div class="node-box">
+                <div class="node-icon">⏳</div>
+                <div class="node-info">
+                  <div class="node-type">Wait</div>
+                  <div class="node-label">Pause 24 Hours</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="5">
+              <div class="node-box">
+                <div class="node-icon">⚖️</div>
+                <div class="node-info">
+                  <div class="node-type">IF Node</div>
+                  <div class="node-label">Did They Reply?</div>
+                </div>
+                <span class="node-branch">→ NO</span>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="6">
+              <div class="node-box">
+                <div class="node-icon">📧</div>
+                <div class="node-info">
+                  <div class="node-type">Gmail</div>
+                  <div class="node-label">Send Chase Email</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="7">
+              <div class="node-box">
+                <div class="node-icon">🔔</div>
+                <div class="node-info">
+                  <div class="node-type">Slack</div>
+                  <div class="node-label">Alert Your Team</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="8">
+              <div class="node-box">
+                <div class="node-icon">✅</div>
+                <div class="node-info">
+                  <div class="node-type">CRM Update</div>
+                  <div class="node-label">Mark as Qualified Lead</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Phone mockup S1 -->
+        <div class="phone-panel">
+          <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Client's phone</div>
+          <div class="phone-mockup">
+            <div class="phone-notch">
+              <div class="phone-notch-cam"></div>
+              <div class="phone-notch-pill"></div>
+            </div>
+            <div class="phone-screen" id="s1phone">
+              <div class="phone-time">11:08 PM</div>
+
+              <!-- Notif 0: form submitted -->
+              <div class="phone-notification" id="s1n0">
+                <div class="phone-notif-header">
+                  <div class="phone-notif-app-icon" style="background:#4CAF50;">🌐</div>
+                  <div class="phone-notif-app-name">Safari</div>
+                  <div class="phone-notif-time">now</div>
+                </div>
+                <div class="phone-notif-title">Form submitted</div>
+                <div class="phone-notif-body">Your mortgage enquiry has been received.</div>
+              </div>
+
+              <!-- Notif 2: email arrives -->
+              <div class="phone-notification" id="s1n2">
+                <div class="phone-notif-header">
+                  <div class="phone-notif-app-icon" style="background:#EA4335;">✉</div>
+                  <div class="phone-notif-app-name">Gmail</div>
+                  <div class="phone-notif-time">11:08 PM</div>
+                </div>
+                <div class="phone-notif-title">Thanks for getting in touch</div>
+                <div class="phone-notif-body">Hi James — we've got your enquiry and will be in touch shortly...</div>
+              </div>
+
+              <!-- Notif 3: WhatsApp -->
+              <div class="phone-notification" id="s1n3">
+                <div class="phone-notif-header">
+                  <div class="phone-notif-app-icon" style="background:#25D366;">💬</div>
+                  <div class="phone-notif-app-name">WhatsApp</div>
+                  <div class="phone-notif-time">11:08 PM</div>
+                </div>
+                <div class="phone-notif-title">ChiselWeb Brokers</div>
+                <div class="phone-notif-body">Hi James 👋 Got your enquiry — we'll be in touch first thing tomorrow.</div>
+              </div>
+
+              <!-- Notif 6: chase -->
+              <div class="phone-notification" id="s1n6">
+                <div class="phone-notif-header">
+                  <div class="phone-notif-app-icon" style="background:#EA4335;">✉</div>
+                  <div class="phone-notif-app-name">Gmail</div>
+                  <div class="phone-notif-time">Tomorrow</div>
+                </div>
+                <div class="phone-notif-title">Still thinking it over?</div>
+                <div class="phone-notif-body">No pressure — just wanted to make sure you didn't miss our last message.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Scenario 2: Morning Briefing ── -->
+      <div class="demo-scenario" id="scenario2" style="width:100%;padding:0 40px;max-width:1200px;margin:0 auto;gap:48px;align-items:flex-start;">
+        <div class="workflow-panel">
+          <div class="workflow-scenario-label">
+            <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#F5C518"/></svg>
+            Scenario 2 — Morning Briefing
+          </div>
+          <h3 class="workflow-title">7am. Before you open your inbox,<br>your day is already organised.</h3>
+          <div class="workflow-nodes" id="s2nodes">
+
+            <div class="workflow-node" data-node="0">
+              <div class="node-box">
+                <div class="node-icon">🕖</div>
+                <div class="node-info">
+                  <div class="node-type">Schedule Trigger</div>
+                  <div class="node-label">Every Day at 7:00am</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="1">
+              <div class="node-box">
+                <div class="node-icon">📅</div>
+                <div class="node-info">
+                  <div class="node-type">Google Calendar</div>
+                  <div class="node-label">Fetch Today's Appointments</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="2">
+              <div class="node-box">
+                <div class="node-icon">📥</div>
+                <div class="node-info">
+                  <div class="node-type">Gmail</div>
+                  <div class="node-label">Scan Overnight Emails</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="3">
+              <div class="node-box">
+                <div class="node-icon">📊</div>
+                <div class="node-info">
+                  <div class="node-type">Google Sheets</div>
+                  <div class="node-label">Pull Open Cases &amp; Deadlines</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="4">
+              <div class="node-box">
+                <div class="node-icon">🤖</div>
+                <div class="node-info">
+                  <div class="node-type">Claude AI</div>
+                  <div class="node-label">Write Personalised Summary</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+            <div class="workflow-node" data-node="5">
+              <div class="node-box">
+                <div class="node-icon">📨</div>
+                <div class="node-info">
+                  <div class="node-type">Gmail</div>
+                  <div class="node-label">Deliver Morning Briefing</div>
+                </div>
+                <div class="node-status"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Phone mockup S2 -->
+        <div class="phone-panel">
+          <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;text-align:center;">Your phone</div>
+          <div class="phone-mockup">
+            <div class="phone-notch">
+              <div class="phone-notch-cam"></div>
+              <div class="phone-notch-pill"></div>
+            </div>
+            <div class="phone-screen" id="s2phone">
+              <div class="phone-time">7:00 AM</div>
+
+              <!-- Notif: trigger fires -->
+              <div class="phone-notification" id="s2n0">
+                <div class="phone-notif-header">
+                  <div class="phone-notif-app-icon" style="background:#555;">⏰</div>
+                  <div class="phone-notif-app-name">Automation</div>
+                  <div class="phone-notif-time">7:00 AM</div>
+                </div>
+                <div class="phone-notif-title">Morning briefing running…</div>
+                <div class="phone-notif-body">Pulling your calendar, emails & cases.</div>
+              </div>
+
+              <!-- Email preview arrives -->
+              <div class="phone-email-preview" id="s2email">
+                <div class="phone-email-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span class="phone-email-from">Your Morning Briefing — Thu 5 Jun</span>
+                </div>
+                <div class="phone-email-subject">☀️ Good morning. Here's your day.</div>
+                <div class="phone-email-line w90"></div>
+                <div style="padding:6px 10px;font-size:0.625rem;color:rgba(255,255,255,0.45);">📅 3 appointments today &nbsp;·&nbsp; 📥 2 urgent emails &nbsp;·&nbsp; ⚠️ 1 deadline tomorrow</div>
+                <div class="phone-email-line w80"></div>
+                <div class="phone-email-line w60" style="margin-bottom:10px;"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /demo-sticky-scene -->
+  </div><!-- /demo-sticky-outer -->
+
+  <div style="height:80px;"></div>
+</section>
+
+<!-- ── Social Proof ────────────────────────────────────────────── -->
+<section class="section" id="proof">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;margin-bottom:0;">
+      <p class="section-label">Why it matters</p>
+      <h2 class="section-title">Built for financial services<br>professionals.</h2>
+      <p class="section-sub" style="margin:0 auto;">These aren't generic numbers. They come from building specifically for brokers and IFAs with high-volume client pipelines.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card fade-up">
+        <div class="stat-number"><span>2+</span> hrs</div>
+        <div class="stat-label">saved per broker, per day</div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:0.1s;">
+        <div class="stat-number"><span>&lt;60</span>s</div>
+        <div class="stat-label">average lead response time, 24/7</div>
+      </div>
+      <div class="stat-card fade-up" style="transition-delay:0.2s;">
+        <div class="stat-number"><span>Zero</span></div>
+        <div class="stat-label">manual follow-ups, ever</div>
+      </div>
+    </div>
+
+    <div class="testimonial-block fade-up">
+      <p class="testimonial-text">"Before ChiselWeb, I was spending the first two hours of every day just catching up on admin — chasing clients, updating my pipeline, writing the same emails again. Now I sit down and it's all done. I don't know how I managed without it."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SR</div>
+        <div>
+          <div class="testimonial-name">Sarah R.</div>
+          <div class="testimonial-role">Independent Mortgage Broker, Manchester</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How It Works ────────────────────────────────────────────── -->
+<section class="section dot-grid-light" id="how">
+  <div class="container">
+    <div class="fade-up" style="text-align:center;">
+      <p class="section-label">The process</p>
+      <h2 class="section-title">Simple from day one.</h2>
+      <p class="section-sub" style="margin:0 auto;">We do the technical work. You get the results. Most systems are live and running within a week.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card fade-up">
+        <div class="step-number">STEP 01</div>
+        <h3 class="step-title">We map your current process</h3>
+        <p class="step-body">A short discovery call where we understand how you work today — your tools, your pipeline, where time gets lost. No jargon, no presuppositions.</p>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.1s;">
+        <div class="step-number">STEP 02</div>
+        <h3 class="step-title">We build your automation system</h3>
+        <p class="step-body">We design and build the workflows in n8n, connected to the tools you already use — Gmail, Calendar, WhatsApp, your CRM. You review and approve.</p>
+      </div>
+      <div class="step-card fade-up" style="transition-delay:0.2s;">
+        <div class="step-number">STEP 03</div>
+        <h3 class="step-title">It runs while you work</h3>
+        <p class="step-body">Go live. From that point on, your system responds to leads, chases documents, and preps your day — automatically, every day, without you touching it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────────────── -->
+<section class="cta-section" id="cta">
+  <div class="cta-section-bg"></div>
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <h2 class="cta-title">Ready to automate<br>your practice?</h2>
+    <p class="cta-sub">Most systems are live within a week. Let's talk about yours.</p>
+    <a href="contact.html" class="btn btn-dark">Get in Touch →</a>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Chisel<span>Web</span></div>
+      <div class="footer-tagline">Automation systems for financial services.</div>
+    </div>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="footer-inner" style="padding-top:0;">
+    <p class="footer-copy">© 2026 ChiselWeb. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
